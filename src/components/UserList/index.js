@@ -58,51 +58,47 @@ class UsersList extends Component {
     });
   };
 
-  mapUsers = (u) => (
-    <UsersListItem
-      key={u.id}
-      user={u}
-      selectUser={this.selectUser}
-    />
-  );
+  mapUsers = (u, index) => {
+    const selectUser = () => {
+      const { users } = this.state;
+      const newUsers = [...users];
+      newUsers[index].isSelected =
+        !newUsers[index].isSelected;
+      this.setState({
+        users: newUsers,
+      });
+    };
 
-  selectUser = (id) => {
-    const { users } = this.state;
-    const newUsers = [...users];
-
-    const selectedUserIndex =
-      newUsers.findIndex(
-        (u) => u.id === id
-      );
-    newUsers[
-      selectedUserIndex
-    ].isSelected =
-      !newUsers[selectedUserIndex]
-        .isSelected;
-    this.setState({ users: newUsers });
+    return (
+      <UsersListItem
+        key={u.id}
+        user={u}
+        selectUser={selectUser}
+      />
+    );
   };
 
+  // selectUser = (id) => {
+  //   const { users } = this.state;
+  //   const newUsers = [...users];
+
+  //   const selectedUserIndex =
+  //     newUsers.findIndex(
+  //       (u) => u.id === id
+  //     );
+  //   newUsers[
+  //     selectedUserIndex
+  //   ].isSelected =
+  //     !newUsers[selectedUserIndex]
+  //       .isSelected;
+  //   this.setState({ users: newUsers });
+  // };
+
   render() {
-    const { counterSteps } = this.state;
     const { users } = this.state;
 
     return (
       <>
-        {/* <div>
-          {counterSteps.map((cS) => (
-            <Counter
-              key={cS.id}
-              step={cS.step}
-            />
-          ))}
-        </div>
-        
-        <button
-          onClick={this.sortCounter}
-        >
-          Sort
-        </button> */}
-
         <ul>
           {users.map(this.mapUsers)}
         </ul>
