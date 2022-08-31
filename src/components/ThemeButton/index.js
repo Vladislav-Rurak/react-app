@@ -5,7 +5,7 @@ import styles from "./ThemeButton.module.css";
 
 function ThemeButton(props) {
   const { isLightTheme } = props;
-  console.log("styles :>> ", styles);
+  // console.log("styles :>> ", styles);
   // Инлайн стили - в объекте
   // имена свойств - в camelCase
 
