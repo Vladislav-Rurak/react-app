@@ -4,6 +4,7 @@
   max-width: 800px;
   margin: 0 auto;
   border: 2px dotted blue;
+  padding: 10px;
 }
 
 .label {
@@ -16,12 +17,13 @@
   margin-left: auto;
   width: 60%;
   margin-bottom: 10px;
+  outline: none;
 }
 
 .inputValid {
-  border: 1px solid green;
+  border: 3px solid green;
 }
 
 .inputInValid {
-  border: 1px solid red;
+  border: 3px solid red;
 }
