@@ -75,7 +75,7 @@ class StopWatch extends Component {
   render() {
     const { count } = this.state;
 
-    console.log("render");
+    // console.log("render");
 
     return (
       <article>

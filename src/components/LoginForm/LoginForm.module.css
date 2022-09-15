@@ -1,0 +1,27 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 2px dotted blue;
+}
+
+.label {
+  display: flex;
+  align-items: baseline;
+}
+
+.input {
+  padding: 10px 20px;
+  margin-left: auto;
+  width: 60%;
+  margin-bottom: 10px;
+}
+
+.inputValid {
+  border: 1px solid green;
+}
+
+.inputInValid {
+  border: 1px solid red;
+}
