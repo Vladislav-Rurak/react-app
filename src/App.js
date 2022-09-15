@@ -20,9 +20,11 @@ class App extends Component {
       <>
         {isVisible && <StopWatch />}
         <button
-          onClick={this.setState({
-            isVisible: !isVisible,
-          })}
+          onClick={() =>
+            this.setState({
+              isVisible: !isVisible,
+            })
+          }
         >
           Switch
         </button>
