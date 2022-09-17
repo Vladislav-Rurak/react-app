@@ -1,25 +1,14 @@
+import UsersListItem from './UserListItem';
 
-import UsersListItem from "./UserListItem";
-
-function UsersList({
-  users,
-  setUsers,
-}) {
+function UsersList ({ users, setUsers }) {
   const mapUser = (u, index) => {
     const selectUser = () => {
       const newUsers = [...users];
-      newUsers[index].isSelected =
-        !newUsers[index].isSelected;
+      newUsers[index].isSelected = !newUsers[index].isSelected;
       setUsers(newUsers);
     };
 
-    return (
-      <UsersListItem
-        key={u.id}
-        user={u}
-        selectUser={selectUser}
-      />
-    );
+    return <UsersListItem key={u.id} user={u} selectUser={selectUser} />;
   };
   return <ul>{users.map(mapUser)}</ul>;
 }

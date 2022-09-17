@@ -1,11 +1,9 @@
-import React, {
-  Component,
-} from "react";
-import CurrentDay from "./CurrentDay";
-import Month from "./Month";
+import React, { Component } from 'react';
+import CurrentDay from './CurrentDay';
+import Month from './Month';
 
 class Calendar extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
 
     this.state = {
@@ -14,19 +12,13 @@ class Calendar extends Component {
     };
   }
 
-  render() {
-    const { date, currentDate } =
-      this.state;
+  render () {
+    const { date, currentDate } = this.state;
 
     return (
       <article>
-        <CurrentDay
-          currentDate={currentDate}
-        />
-        <Month
-          date={date}
-          currentDate={currentDate}
-        />
+        <CurrentDay currentDate={currentDate} />
+        <Month date={date} currentDate={currentDate} />
       </article>
     );
   }

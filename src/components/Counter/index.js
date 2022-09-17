@@ -1,12 +1,10 @@
 // снипед (быстрая генерация) rcc
 
-import React, {
-  Component,
-} from "react";
+import React, { Component } from 'react';
 
 class Counter extends Component {
   // rconst
-  constructor(props) {
+  constructor (props) {
     super(props);
 
     this.state = {
@@ -14,7 +12,7 @@ class Counter extends Component {
     };
   }
   // ОБРАБОТЧИКИ ДЕЛАЕМ СТРЕЛКАМИ (или bind)
-  increment = (e) => {
+  increment = e => {
     // this.state.count++; напрямую не поменяешь как в JS
     const { count } = this.state;
     const { step } = this.props;
@@ -23,7 +21,7 @@ class Counter extends Component {
     });
   };
 
-  decrement = (e) => {
+  decrement = e => {
     const { count } = this.state;
     const { step } = this.props;
     this.setState({
@@ -31,7 +29,7 @@ class Counter extends Component {
     });
   };
 
-  render() {
+  render () {
     const { count } = this.state;
     const { step } = this.props;
     return (
@@ -39,16 +37,8 @@ class Counter extends Component {
         <div>
           {count} : {step}
         </div>
-        <button
-          onClick={this.increment}
-        >
-          +
-        </button>
-        <button
-          onClick={this.decrement}
-        >
-          -
-        </button>
+        <button onClick={this.increment}>+</button>
+        <button onClick={this.decrement}>-</button>
       </>
     );
   }

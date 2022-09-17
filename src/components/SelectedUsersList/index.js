@@ -1,22 +1,18 @@
-import React from "react";
+import React from 'react';
 
 // коллбек map можно вынести в отдельную функцию
 
-function SelectedUserList(props) {
+function SelectedUserList (props) {
   const { users } = props;
-  const selectedUsers = users.filter(
-    (u) => u.isSelected
-  );
+  const selectedUsers = users.filter(u => u.isSelected);
 
   return (
     <ol>
-      {selectedUsers.map(
-        (id, firstName, lastName) => (
-          <li key={id}>
-            {firstName} {lastName}
-          </li>
-        )
-      )}
+      {selectedUsers.map((id, firstName, lastName) => (
+        <li key={id}>
+          {firstName} {lastName}
+        </li>
+      ))}
     </ol>
   );
 }

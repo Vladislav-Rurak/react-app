@@ -1,9 +1,9 @@
 // import "./ThemeButton.css"; className='button'
 // модули стилей: генерируют уникальные имена классов
 
-import styles from "./ThemeButton.module.css";
+import styles from './ThemeButton.module.css';
 
-function ThemeButton(props) {
+function ThemeButton (props) {
   const { isLightTheme } = props;
   // console.log("styles :>> ", styles);
   // Инлайн стили - в объекте
@@ -11,21 +11,13 @@ function ThemeButton(props) {
 
   // Инлайн стили используем тогда, когда они динамически формируются
   const inLineStyles = {
-    color: isLightTheme
-      ? "grey"
-      : "white",
-    backgroundColor: isLightTheme
-      ? "white"
-      : "black",
+    color: isLightTheme ? 'grey' : 'white',
+    backgroundColor: isLightTheme ? 'white' : 'black',
   };
   // className = 'class1 class2 class3'
   return (
-    <button
-      type="button"
-      style={inLineStyles}
-      className={styles.button}
-    >
-      {isLightTheme ? "Light" : "Dark"}
+    <button type='button' style={inLineStyles} className={styles.button}>
+      {isLightTheme ? 'Light' : 'Dark'}
     </button>
   );
 }

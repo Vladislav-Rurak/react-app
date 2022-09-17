@@ -1,29 +1,17 @@
-import DeleteOutlineIcon from "mdi-react/DeleteOutlineIcon";
+import DeleteOutlineIcon from 'mdi-react/DeleteOutlineIcon';
 
-function UsersListItem(props) {
+function UsersListItem (props) {
   const {
-    user: {
-      id,
-      firstName,
-      lastName,
-      isSelected,
-    },
+    user: { id, firstName, lastName, isSelected },
     selectUser,
   } = props;
 
   const liStyle = {
-    border: `2px dotted ${
-      isSelected
-        ? "green"
-        : "transparent"
-    }`,
+    border: `2px dotted ${isSelected ? 'green' : 'transparent'}`,
   };
 
   return (
-    <li
-      onClick={() => selectUser()}
-      style={liStyle}
-    >
+    <li onClick={() => selectUser()} style={liStyle}>
       {firstName} {lastName}
       <DeleteOutlineIcon />
     </li>
