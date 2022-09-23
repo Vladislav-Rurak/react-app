@@ -9,7 +9,7 @@ class UsersLoader extends Component {
       users: [],
       isFetching: false,
       error: null,
-      currentPage: 1,
+      currentPage: Number(window.localStorage.getItem('page')) || 1,
     };
   }
 
@@ -36,6 +36,8 @@ class UsersLoader extends Component {
     const { currentPage } = this.state;
 
     if (prevState.currentPage !== currentPage) {
+      window.localStorage.setItem('page', currentPage);
+
       this.load();
     }
   }
@@ -52,12 +54,13 @@ class UsersLoader extends Component {
   };
 
   render () {
-    const { users, error, isFetching } = this.state;
+    const { users, error, isFetching, currentPage } = this.state;
     // if (error) {
     //   return <div style={{ color: 'red' }}>!!!ERROR!!!</div>;
     // }
     return (
       <>
+        <p>{currentPage}</p>
         <button onClick={this.back}>Back</button>
         <button onClick={this.forward}>Forward</button>
         {error && <div style={{ color: 'red' }}>!!!ERROR!!!</div>}

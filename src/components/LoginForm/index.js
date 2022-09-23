@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { Component } from 'react';
-import styles from './LoginForm.module.css';
+import styles from './LoginForm.module.scss';
 
 const INITIAL_VALUSE = {
   email: '',
