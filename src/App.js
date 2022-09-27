@@ -1,11 +1,18 @@
-import FlexContainer from './components/FlexContainer';
+import ImageWrapper from './components/ImageWrapper';
 
 const App = () => (
-  <FlexContainer jc='center' ai='center' fd='column'>
-    <div>1</div>
-    <div>3</div>
-    <div>5</div>
-  </FlexContainer>
+  <ImageWrapper
+    width='200px'
+    height='200px'
+    title='image'
+    tabIndex={1}
+    className='asdasdas'
+  >
+    <img
+      src='https://ichef.bbci.co.uk/news/640/cpsprodpb/475B/production/_98776281_gettyimages-521697453.jpg'
+      alt='Puppy'
+    />
+  </ImageWrapper>
 );
 
 export default App;
