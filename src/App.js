@@ -1,51 +1,28 @@
-import DataProvider from './components/DataProvider';
+import React, { Component } from 'react';
+import Counter from './components/Counter';
 
-const UsersLoadingList = props => {
-  const { data: users, isFetching, error } = props.usersData;
-  return (
-    <>
-      {isFetching && <div>Loading...</div>}
-      {error && <div>ERROR</div>}
-      <ul>
-        {users.map(u => (
-          <li key={u.id}>
-            <img src={u.src} />
-            {u.firstName} {u.lastName}
-          </li>
-        ))}
-      </ul>
-    </>
-  );
-};
+class App extends Component {
+  constructor (props) {
+    super(props);
 
-const PhonesLoadingList = props => {
-  const { data: phones, isFetching, error } = props.phonesData;
-  return (
-    <>
-      {isFetching && <div>Loading...</div>}
-      {error && <div>ERROR</div>}
-      <ol>
-        {phones.map(p => (
-          <li key={p.id}>
-            {p.brand} {p.model}: {p.price}
-          </li>
-        ))}
-      </ol>
-    </>
-  );
-};
+    this.state = {
+      step: 1,
+    };
+  }
 
-const App = () => (
-  <>
-    <DataProvider
-      fileName='./users.json'
-      render={usersData => <UsersLoadingList usersData={usersData} />}
-    />
-    <DataProvider
-      fileName='./phones.json'
-      render={phonesData => <PhonesLoadingList phonesData={phonesData} />}
-    />
-  </>
-);
+  handleStepChange = e => {
+    this.setState({ step: Number(e.target.value) });
+  };
+
+  render () {
+    const { step } = this.state;
+    return (
+      <>
+        <input type='number' value={step} onChange={this.handleStepChange} />;
+        <Counter step={step} />;
+      </>
+    );
+  }
+}
 
 export default App;
