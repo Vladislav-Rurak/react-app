@@ -1,18 +1,51 @@
-import ImageWrapper from './components/ImageWrapper';
+import DataProvider from './components/DataProvider';
+
+const UsersLoadingList = props => {
+  const { data: users, isFetching, error } = props.usersData;
+  return (
+    <>
+      {isFetching && <div>Loading...</div>}
+      {error && <div>ERROR</div>}
+      <ul>
+        {users.map(u => (
+          <li key={u.id}>
+            <img src={u.src} />
+            {u.firstName} {u.lastName}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+};
+
+const PhonesLoadingList = props => {
+  const { data: phones, isFetching, error } = props.phonesData;
+  return (
+    <>
+      {isFetching && <div>Loading...</div>}
+      {error && <div>ERROR</div>}
+      <ol>
+        {phones.map(p => (
+          <li key={p.id}>
+            {p.brand} {p.model}: {p.price}
+          </li>
+        ))}
+      </ol>
+    </>
+  );
+};
 
 const App = () => (
-  <ImageWrapper
-    width='200px'
-    height='200px'
-    title='image'
-    tabIndex={1}
-    className='asdasdas'
-  >
-    <img
-      src='https://ichef.bbci.co.uk/news/640/cpsprodpb/475B/production/_98776281_gettyimages-521697453.jpg'
-      alt='Puppy'
+  <>
+    <DataProvider
+      fileName='./users.json'
+      render={usersData => <UsersLoadingList usersData={usersData} />}
     />
-  </ImageWrapper>
+    <DataProvider
+      fileName='./phones.json'
+      render={phonesData => <PhonesLoadingList phonesData={phonesData} />}
+    />
+  </>
 );
 
 export default App;
