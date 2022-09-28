@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import { PureComponent } from 'react';
 
-class Counter extends Component {
+class Counter extends PureComponent {
   constructor (props) {
     super(props);
 
@@ -8,6 +8,13 @@ class Counter extends Component {
       count: 0,
     };
   }
+
+  // shouldComponentUpdate (nextProps, nextState) {
+  //   const { count } = this.state;
+
+  //   return count !== nextState.count;
+  // }
+
   increment = e => {
     const { count } = this.state;
     const { step } = this.props;
