@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  justify-content: right;
+  border: 2px solid red;
+}
+
+.light {
+  color: black;
+  background-color: antiquewhite;
+}
+
+.dark {
+  color: lightcyan;
+  background-color: black;
+}
+
+.userInfocontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
