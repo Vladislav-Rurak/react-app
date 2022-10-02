@@ -1,5 +1,5 @@
-import ClickerCounter from './components/ClickerCounter';
+import CounterH from './components/CounterH';
 
-const App = () => <ClickerCounter />;
+const App = () => <CounterH />;
 
 export default App;
