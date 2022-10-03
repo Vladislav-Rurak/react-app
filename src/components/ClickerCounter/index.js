@@ -1,24 +1,42 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function ClickerCounter () {
   const [count, setCount] = useState(0);
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
 
   const clickerHendler = () => setCount(count => count + 1);
 
-  const mouseMoveHendler = e => {
-    setCoords({ x: e.clientX, y: e.clientY });
-  };
+  useEffect(() => {
+    document.title = `${count}`;
+  });
+
+  useEffect(() => {
+    document.body.addEventListener('click', clickerHendler);
+    return () => {
+      document.body.removeEventListener('click', clickerHendler);
+    };
+  });
+
+  useEffect(() => {
+    console.log('useEffect', count);
+    return () => {
+      console.log('useEffect reset', count);
+    };
+  }, []);
 
   return (
-    <div
-      style={{ height: '100vh' }}
-      onClick={clickerHendler}
-      onMouseMove={mouseMoveHendler}
-    >
-      {count}
+    <div style={{ height: '100vh' }}>
+      <p>{console.log('render')}</p>
+      <p>Count: {count}</p>
     </div>
   );
 }
+
+// useEffect(() => {
+//   // Побочный эффект после каждого рендера (cdm +cdu)
+//   return () => {
+//     // Сброс побочного эффекта перед следующим рендером
+//     // + перед размонтированием
+//   };
+// });
 
 export default ClickerCounter;
