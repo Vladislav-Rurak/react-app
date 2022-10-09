@@ -6,7 +6,7 @@ const USER_SCHEMA = yup.object({
     .trim()
     .min(2)
     .max(60)
-    .matches(/^[A-Z][a-z]{*}$/)
+    .matches(/^[A-Z][a-z]*$/, 'First Name must be...')
     .required(),
   age: yup
     .number()
