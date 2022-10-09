@@ -1,10 +1,17 @@
 import classNames from 'classnames';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import USER_SCHEMA from '../../utils/validationsSchemas';
+import Input from '../Input';
 import styles from './UserInfoForm.module.scss';
 
 function UserInfoForm () {
   const initialValues = { firstName: '', lastName: '', age: '' };
+  const classes = {
+    input: styles.input,
+    valid: styles.valid,
+    invalid: styles.invalid,
+    error: styles.error,
+  };
 
   const handleSubmit = (values, formikBag) => {
     console.log('values :>> ', values);
@@ -17,57 +24,27 @@ function UserInfoForm () {
       onSubmit={handleSubmit}
       validationSchema={USER_SCHEMA}
     >
-      {formikProps => {
-        const firstNameClassName = classNames(styles.input, {
-          [styles.valid]:
-            !formikProps.errors.firstName && formikProps.touched.firstName,
-          [styles.invalid]:
-            formikProps.errors.firstName && formikProps.touched.firstName,
-        });
+      <>
+        <Form>
+          <Input
+            label='First Name:'
+            type='text'
+            name='firstName'
+            placeholder='Firstname'
+            autoFocus
+            className={classes}
+          />
+          <Input
+            label='Age'
+            name='age'
+            type='text'
+            placeholder='25'
+            className={classes}
+          />
 
-        const ageClassName = classNames(styles.input, {
-          [styles.valid]: !formikProps.errors.age && formikProps.touched.age,
-          [styles.invalid]: formikProps.errors.age && formikProps.touched.age,
-        });
-
-        return (
-          <>
-            <Form>
-              <label className={styles.form}>
-                <span>First Name:</span>
-                <Field
-                  className={firstNameClassName}
-                  type='text'
-                  name='firstName'
-                  placeholder='Firstname'
-                  autoFocus
-                />
-                <ErrorMessage
-                  className={styles.error}
-                  name='firstName'
-                  component='span'
-                />
-              </label>
-              <label>
-                <span>Age</span>
-                <Field
-                  className={ageClassName}
-                  name='age'
-                  type='text'
-                  placeholder='25'
-                />
-                <ErrorMessage
-                  className={styles.error}
-                  name='age'
-                  component='span'
-                />
-              </label>
-
-              <button type='sybmit'>Save</button>
-            </Form>
-          </>
-        );
-      }}
+          <button type='sybmit'>Save</button>
+        </Form>
+      </>
     </Formik>
   );
 }
