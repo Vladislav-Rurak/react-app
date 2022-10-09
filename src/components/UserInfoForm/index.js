@@ -25,7 +25,7 @@ function UserInfoForm () {
       validationSchema={USER_SCHEMA}
     >
       <>
-        <Form>
+        <Form className={styles.form}>
           <Input
             label='First Name:'
             type='text'

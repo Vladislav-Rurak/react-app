@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { ErrorMessage, Field } from 'formik';
 import React from 'react';
 
@@ -9,10 +10,15 @@ function Input (props) {
   return (
     <Field name={name}>
       {({ field, form: { errors, touched }, meta }) => {
+        const inputClassName = classNames(classes.input, {
+          [classes.valid]: !errors.firstName && touched.firstName,
+          [classes.invalid]: errors.firstName && touched.firstName,
+        });
+
         return (
           <label>
             <span>{label}</span>
-            <input {...field} {...restProps} />
+            <input className={inputClassName} {...field} {...restProps} />
             <ErrorMessage
               className={classes.error}
               name={field.name}
@@ -26,13 +32,6 @@ function Input (props) {
 }
 
 export default Input;
-
-// const firstNameClassName = classNames(styles.input, {
-//   [styles.valid]:
-//     !formikProps.errors.firstName && formikProps.touched.firstName,
-//   [styles.invalid]:
-//     formikProps.errors.firstName && formikProps.touched.firstName,
-// });
 
 // const ageClassName = classNames(styles.input, {
 //   [styles.valid]: !formikProps.errors.age && formikProps.touched.age,
