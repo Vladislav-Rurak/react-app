@@ -3,16 +3,14 @@ import { ErrorMessage, Field } from 'formik';
 import React from 'react';
 
 function Input (props) {
-  console.log('props :>> ', props);
   const { label, name, classes, ...restProps } = props;
 
-  console.log('restProps :>> ', restProps);
   return (
     <Field name={name}>
       {({ field, form: { errors, touched }, meta }) => {
-        const inputClassName = classNames(classes.input, {
-          [classes.valid]: !errors.firstName && touched.firstName,
-          [classes.invalid]: errors.firstName && touched.firstName,
+        const inputClassName = classNames([classes.input], {
+          [classes.valid]: !errors[name] && touched[name],
+          [classes.invalid]: errors[name] && touched[name],
         });
 
         return (

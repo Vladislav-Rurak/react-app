@@ -1,11 +1,13 @@
 import UserPageHeader from '../../components/UserPageHeader';
+import UserPageMainInfo from '../../components/UserPageMainInfo';
 import UserPageSideBar from '../../components/UserPageSideBar';
 
 function UserPage (props) {
   return (
     <>
-      <UserPageHeader />
-      <UserPageSideBar />
+      {/* <UserPageHeader />
+      <UserPageSideBar /> */}
+      <UserPageMainInfo />
     </>
   );
 }

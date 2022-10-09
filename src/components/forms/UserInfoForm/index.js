@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import USER_SCHEMA from '../../utils/validationsSchemas';
+import USER_SCHEMA from '../../../utils/validationsSchemas';
 import Input from '../Input';
 import styles from './UserInfoForm.module.scss';
 
@@ -14,7 +14,6 @@ function UserInfoForm () {
   };
 
   const handleSubmit = (values, formikBag) => {
-    console.log('values :>> ', values);
     formikBag.resetForm();
   };
 
