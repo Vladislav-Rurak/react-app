@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "classnames": "^2.3.2",
     "date-fns": "^2.29.3",
+    "formik": "^2.2.9",
     "mdi-react": "^9.0.0",
     "prop-types": "^15.8.1",
     "query-string": "^7.1.1",
@@ -16,7 +17,8 @@
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
     "sass": "^1.54.9",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
